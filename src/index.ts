@@ -3,7 +3,7 @@ import LktToastCanvas from './lib-components/LktToastCanvas.vue';
 import {default as libComponent} from './lib-components/LktToast.vue';
 import {Settings} from './settings/Settings';
 
-import "./../lkt-modal.css";
+import "./../lkt-toast.css";
 import {ValidCanvas} from "./types/ValidCanvas";
 
 export {closeToast, openToast} from './functions/functions';

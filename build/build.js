@@ -1,5 +1,6 @@
-import { defineComponent as p, computed as f, createElementBlock as i, openBlock as c, normalizeClass as k, createElementVNode as l, renderSlot as x, ref as u, getCurrentInstance as I, Fragment as T, renderList as C, createBlock as z, mergeProps as y } from "vue";
-class L {
+import { defineComponent as k, computed as p, createElementBlock as f, openBlock as i, normalizeClass as _, createElementVNode as a, ref as v, getCurrentInstance as T, Fragment as I, renderList as C, createBlock as z, mergeProps as L } from "vue";
+import { extractI18nValue as y } from "lkt-vue-kernel";
+class $ {
   constructor() {
     this.components = [], this.zIndex = 1e3;
   }
@@ -11,14 +12,14 @@ class L {
     n && (delete this.components[n], this.components.length === 0 && (this.zIndex = 1e3));
   }
 }
-const a = class a {
+const c = class c {
 };
-a.controller = new L(), a.canvas = void 0, a.defaultCloseIcon = "";
-let t = a;
-const $ = {
+c.controller = new $(), c.canvas = void 0, c.defaultCloseIcon = "";
+let e = c;
+const w = {
   class: "lkt-toast-inner",
   ref: "inner"
-}, w = { class: "lkt-toast-content" }, m = /* @__PURE__ */ p({
+}, B = ["innerHTML"], h = /* @__PURE__ */ k({
   __name: "LktToast",
   props: {
     type: {},
@@ -28,61 +29,66 @@ const $ = {
     buttonConfig: {},
     zIndex: {}
   },
-  setup(e) {
-    const s = f(() => [].join(" "));
-    return (n, o) => (c(), i("section", {
-      class: k(["lkt-toast", s.value])
+  setup(t) {
+    const s = t, n = p(() => [].join(" ")), o = p(() => y(s.text));
+    return (d, r) => (i(), f("section", {
+      class: _(["lkt-toast", n.value])
     }, [
-      o[0] || (o[0] = l("div", { class: "lkt-toast-close" }, null, -1)),
-      l("div", $, [
-        l("section", w, [
-          x(n.$slots, "default")
-        ])
+      r[0] || (r[0] = a("div", { class: "lkt-toast-close" }, null, -1)),
+      a("div", w, [
+        a("div", {
+          class: "lkt-toast-content",
+          innerHTML: o.value
+        }, null, 8, B)
       ], 512)
     ], 2));
   }
-}), B = { class: "lkt-toast-canvas" }, E = /* @__PURE__ */ p({
+}), g = { class: "lkt-toast-canvas" }, E = { class: "lkt-toast-stack right-stack" }, H = /* @__PURE__ */ k({
   __name: "LktToastCanvas",
-  setup(e, { expose: s }) {
-    const n = u(0), o = I(), v = u([]), h = () => {
+  setup(t, { expose: s }) {
+    const n = v(0), o = T(), d = v([]), r = () => {
       n.value = n.value + 1, setTimeout(() => {
-        var r;
-        (r = o == null ? void 0 : o.proxy) == null || r.$forceUpdate();
+        var u;
+        (u = o == null ? void 0 : o.proxy) == null || u.$forceUpdate();
       }, 1);
-    }, _ = f(() => (n.value, t.controller.components));
+    }, x = p(() => (n.value, e.controller.components));
     return s({
-      refresh: h
-    }), (r, R) => (c(), i("section", B, [
-      (c(!0), i(T, null, C(_.value, (d) => (c(), z(m, y({
-        ref_for: !0,
-        ref_key: "instanceReferences",
-        ref: v,
-        key: d.zIndex
-      }, d), null, 16))), 128))
+      refresh: r
+    }), (u, l) => (i(), f("section", g, [
+      l[0] || (l[0] = a("div", { class: "lkt-toast-stack left-stack" }, null, -1)),
+      l[1] || (l[1] = a("div", { class: "lkt-toast-stack center-stack" }, null, -1)),
+      a("div", E, [
+        (i(!0), f(I, null, C(x.value, (m) => (i(), z(h, L({
+          ref_for: !0,
+          ref_key: "instanceReferences",
+          ref: d,
+          key: m.zIndex
+        }, m), null, 16))), 128))
+      ])
     ]));
   }
-}), g = (e) => {
-  if (!t.canvas) {
+}), V = (t) => {
+  if (!e.canvas) {
     console.warn("ToastCanvas not defined");
     return;
   }
-  t.controller.open(e), t.canvas.refresh();
-}, j = (e) => {
-  if (!t.canvas) {
+  e.controller.open(t), e.canvas.refresh();
+}, b = (t) => {
+  if (!e.canvas) {
     console.warn("ToastCanvas not defined");
     return;
   }
-  t.controller.close(e), t.canvas.refresh();
-}, F = {
-  install: (e) => {
-    e.component("lkt-toast-canvas") === void 0 && e.component("lkt-toast-canvas", E), e.component("lkt-toast") === void 0 && e.component("lkt-toast", m);
+  e.controller.close(t), e.canvas.refresh();
+}, j = {
+  install: (t) => {
+    t.component("lkt-toast-canvas") === void 0 && t.component("lkt-toast-canvas", H), t.component("lkt-toast") === void 0 && t.component("lkt-toast", h);
   }
-}, N = (e) => {
-  t.canvas = e;
+}, F = (t) => {
+  e.canvas = t;
 };
 export {
-  j as closeToast,
-  F as default,
-  g as openToast,
-  N as setToastCanvas
+  b as closeToast,
+  j as default,
+  V as openToast,
+  F as setToastCanvas
 };

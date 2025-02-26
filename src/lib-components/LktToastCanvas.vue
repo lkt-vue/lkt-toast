@@ -28,11 +28,19 @@ defineExpose({
 
 <template>
     <section class="lkt-toast-canvas">
-        <lkt-toast
-            v-for="info in components"
-            ref="instanceReferences"
-            :key="info.zIndex"
-            v-bind="info"
-        />
+        <div class="lkt-toast-stack left-stack">
+
+        </div>
+        <div class="lkt-toast-stack center-stack">
+
+        </div>
+        <div class="lkt-toast-stack right-stack">
+            <lkt-toast
+                v-for="info in components"
+                ref="instanceReferences"
+                :key="info.zIndex"
+                v-bind="info"
+            />
+        </div>
     </section>
 </template>

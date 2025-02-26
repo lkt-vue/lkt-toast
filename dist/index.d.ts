@@ -1,5 +1,5 @@
 import { Plugin } from 'vue';
-import "./../lkt-modal.css";
+import "./../lkt-toast.css";
 import { ValidCanvas } from "./types/ValidCanvas";
 export { closeToast, openToast } from './functions/functions';
 declare const LktToast: Plugin;

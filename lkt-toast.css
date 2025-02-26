@@ -1,0 +1,36 @@
+.lkt-toast-canvas {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+.lkt-toast-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 33.33%;
+}
+
+.lkt-toast-stack.left-stack {
+    left: 0;
+}
+
+.lkt-toast-stack.center-stack {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.lkt-toast-stack.right-stack {
+    right: 0;
+}
+
+.lkt-toast {
+    padding: 15px;
+    border-radius: 5px;
+    background: pink;
+}
