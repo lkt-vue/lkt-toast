@@ -13,20 +13,22 @@
     gap: 10px;
     position: absolute;
     bottom: 0;
-    width: 33.33%;
 }
 
 .lkt-toast-stack.left-stack {
     left: 0;
+    align-items: flex-start;
 }
 
 .lkt-toast-stack.center-stack {
     left: 50%;
     transform: translateX(-50%);
+    align-items: center;
 }
 
 .lkt-toast-stack.right-stack {
     right: 0;
+    align-items: flex-end;
 }
 
 .lkt-toast {
