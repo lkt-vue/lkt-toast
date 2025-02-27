@@ -1,17 +1,17 @@
 :root {
-    --lkt-toast-back-background: rgba(0, 0, 0, .3);
-    --lkt-toast-background: #ffffff;
-    --lkt-toast-max-width-default: 640px;
-    --lkt-toast-width-default: 100%;
-    --lkt-toast-content-padding: 15px;
-    --lkt-toast-header-height: auto;
-    --lkt-toast-title-padding: 15px;
-    --lkt-toast-title-font-size: 16px;
+    --lkt-toast--stack--gap: 10px;
+    --lkt-toast--stack--padding: 10px;
 
-    --lkt-toast-pre-title-padding: 15px;
-    --lkt-toast-pre-title-font-size: 14px;
-    --lkt-toast-pre-title-font-weight: 600;
-    --lkt-toast-pre-title-background: #000000;
-    --lkt-toast-pre-title-color: #ffffff;
-    --lkt-toast-title-font-size-after-pre-title: 15px;
+    --lkt-toast--toast--gap: 10px;
+    --lkt-toast--toast--padding: 15px;
+    --lkt-toast--toast--border-radius: 20px;
+    --lkt-toast--toast--bg: #ffffff;
+    --lkt-toast--toast--transition: 300ms;
+    --lkt-toast--toast--width: 250px;
+    --lkt-toast--toast--border-width: 1px;
+    --lkt-toast--toast--border-style: solid;
+    --lkt-toast--toast--border-color: #d4d4d4;
+
+    --lkt-toast--progress--height: 10px;
+    --lkt-toast--progress--color: #d4d4d4;
 }

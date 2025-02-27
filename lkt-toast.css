@@ -10,21 +10,21 @@
 .lkt-toast-stack {
     display: flex;
     flex-direction: column-reverse;
-    gap: 10px;
+    gap: var(--lkt-toast--stack--gap);
     position: absolute;
     bottom: 0;
 }
 
 .lkt-toast-stack.is-visible {
-    padding-bottom: 10px;
+    padding-bottom: var(--lkt-toast--stack--padding);
 }
 
 .lkt-toast-stack.right-stack.is-visible {
-    padding-right: 10px;
+    padding-right: var(--lkt-toast--stack--padding);
 }
 
 .lkt-toast-stack.left-stack.is-visible {
-    padding-left: 10px;
+    padding-left: var(--lkt-toast--stack--padding);
 }
 
 .lkt-toast-stack.left-stack {
@@ -44,12 +44,12 @@
 }
 
 .lkt-toast {
-    padding: 15px;
-    border-radius: 20px;
-    background: #ffffff;
-    transition: 300ms;
-    width: 250px;
-    border: 1px solid #d4d4d4;
+    padding: var(--lkt-toast--toast--padding);
+    border-radius: var(--lkt-toast--toast--border-radius);
+    background: var(--lkt-toast--toast--bg);
+    transition: var(--lkt-toast--toast--transition);
+    width: var(--lkt-toast--toast--width);
+    border: var(--lkt-toast--toast--border-width) var(--lkt-toast--toast--border-style) var(--lkt-toast--toast--border-color);
 }
 
 .lkt-toast.animation-left {
@@ -78,18 +78,18 @@
 .lkt-toast-inner {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: var(--lkt-toast--toast--gap);
 }
 
 .lkt-toast-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
+    gap: var(--lkt-toast--toast--gap);
 }
 
 .lkt-toast .lkt-progress {
-    --lkt-progress-bar-height: 10px;
-    --lkt-progress-min-height: 10px;
-    --lkt-progress-bar-percentage-color: #d4d4d4;
+    --lkt-progress-bar-height: var(--lkt-toast--progress--height);
+    --lkt-progress-min-height: var(--lkt-toast--progress--height);
+    --lkt-progress-bar-percentage-color: var(--lkt-toast--progress--color);
 }
