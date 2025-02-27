@@ -86,6 +86,20 @@
     align-items: center;
     justify-content: space-between;
     gap: var(--lkt-toast--toast--gap);
+    font-size: var(--lkt-toast--header--font-size);
+    font-weight: var(--lkt-toast--header--font-weight);
+}
+
+.lkt-toast-header-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--lkt-toast--toast--gap);
+}
+
+.lkt-toast-details {
+    font-size: var(--lkt-toast--details--font-size);
+    font-weight: var(--lkt-toast--details--font-weight);
 }
 
 .lkt-toast .lkt-progress {

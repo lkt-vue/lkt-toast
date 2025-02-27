@@ -14,4 +14,10 @@
 
     --lkt-toast--progress--height: 10px;
     --lkt-toast--progress--color: #d4d4d4;
+
+    --lkt-toast--header--font-size: 16px;
+    --lkt-toast--header--font-weight: 400;
+
+    --lkt-toast--details--font-size: 14px;
+    --lkt-toast--details--font-weight: 400;
 }

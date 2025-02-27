@@ -16,7 +16,9 @@ const classes = computed(() => {
         if (props.positionX) r.push(`animation-${props.positionX}`);
         return r.join(' ');
     }),
-    computedText = computed(() => extractI18nValue(props.text))
+    computedText = computed(() => extractI18nValue(props.text)),
+    computedDetails = computed(() => extractI18nValue(props.details))
+;
 
 const onProgressEnd = () => {
         closeToast(props.zIndex);
@@ -44,12 +46,15 @@ onMounted(() => {
              @mouseleave="onProgressMouseLeave">
         <div class="lkt-toast-inner" ref="inner">
             <div class="lkt-toast-header">
-                <lkt-icon v-if="icon" :icon="icon"/>
-                <div class="lkt-toast-text" v-html="computedText"></div>
+                <div class="lkt-toast-header-text">
+                    <lkt-icon v-if="icon" :icon="icon"/>
+                    <div class="lkt-toast-text" v-html="computedText"></div>
+                </div>
                 <div class="lkt-toast-close" @click="closeToast(zIndex)">
                     <i class="lkt-icon-close"/>
                 </div>
             </div>
+            <div class="lkt-toast-details" v-html="computedDetails"></div>
             <lkt-progress
                 ref="progressRef"
                 v-model="progressPercentage"

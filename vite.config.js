@@ -23,13 +23,11 @@ export default {
     rollupOptions: {
       external: [
         'vue',
-        'lkt-tools',
         'lkt-events',
         'lkt-vue-tools',
         'lkt-http',
         'lkt-data-state',
-        'lkt-modal-confirm',
-        'lkt-fields',
+        'lkt-progress',
         'lkt-button',
         'lkt-loader',
         'lkt-tabs',

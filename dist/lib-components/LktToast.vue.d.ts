@@ -3,6 +3,7 @@ declare const _default: import("vue").DefineComponent<ToastConfig, {}, {}, {}, {
     type: import("lkt-vue-kernel").ToastType;
     positionX: import("lkt-vue-kernel").ToastPositionX;
     zIndex: number;
+    details: string | number;
     text: string | number;
     icon: string | number;
     duration: number;
