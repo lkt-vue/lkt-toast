@@ -1,7 +1,7 @@
 declare function P(t: any): void;
-declare namespace O {
+declare namespace W {
     function install(t: any): void;
 }
-declare function K(t: any): void;
-declare function Q(t: any): void;
-export { P as closeToast, O as default, K as openToast, Q as setToastCanvas };
+declare function S(t: any): void;
+declare function Y(t: any): void;
+export { P as closeToast, W as default, S as openToast, Y as setToastCanvas };

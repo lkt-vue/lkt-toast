@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import {computed, onMounted, ref} from 'vue';
-import {extractI18nValue, ToastConfig} from "lkt-vue-kernel";
+import {extractI18nValue, getDefaultValues, Toast, ToastConfig} from "lkt-vue-kernel";
 import {closeToast} from "../functions/functions";
 
-const props = withDefaults(defineProps<ToastConfig>(), {});
+const props = withDefaults(defineProps<ToastConfig>(), getDefaultValues(Toast));
 
 const progressPercentage = ref(100),
     timeoutDuration = props.duration ?? 10000,
