@@ -1,23 +1,20 @@
 import {ToastConfig} from 'lkt-vue-kernel';
 
 export class ToastController {
-    private components: ToastConfig[] = [];
-    private zIndex: number = 1000;
+    static components: ToastConfig[] = [];
+    static zIndex: number = 1000;
 
-    open(config: ToastConfig) {
-        console.log('openToast: ', config);
-        this.components.push({...config, zIndex: this.zIndex});
-        ++this.zIndex;
+    static open(config: ToastConfig) {
+        ToastController.components.push({...config, zIndex: ToastController.zIndex});
+        ++ToastController.zIndex;
     }
 
-    close(zIndex: number) {
-
-        const needle = this.components.findIndex((z:ToastConfig) => z.zIndex === zIndex);
-        if (needle) {
-            delete this.components[needle];
-
-            if (this.components.length === 0) {
-                this.zIndex = 1000;
+    static close(zIndex: number) {
+        const needle = ToastController.components.findIndex((z:ToastConfig) => z.zIndex === zIndex);
+        if (needle >= 0) {
+            ToastController.components.splice(needle, 1);
+            if (ToastController.components.length === 0) {
+                ToastController.zIndex = 1000;
             }
         }
     }

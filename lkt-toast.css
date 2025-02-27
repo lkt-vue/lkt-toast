@@ -9,10 +9,22 @@
 
 .lkt-toast-stack {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 10px;
     position: absolute;
     bottom: 0;
+}
+
+.lkt-toast-stack.is-visible {
+    padding-bottom: 10px;
+}
+
+.lkt-toast-stack.right-stack.is-visible {
+    padding-right: 10px;
+}
+
+.lkt-toast-stack.left-stack.is-visible {
+    padding-left: 10px;
 }
 
 .lkt-toast-stack.left-stack {
@@ -33,6 +45,51 @@
 
 .lkt-toast {
     padding: 15px;
-    border-radius: 5px;
-    background: pink;
+    border-radius: 20px;
+    background: #ffffff;
+    transition: 300ms;
+    width: 250px;
+    border: 1px solid #d4d4d4;
+}
+
+.lkt-toast.animation-left {
+    transform: translateX(-100%);
+}
+
+.lkt-toast.animation-right {
+    transform: translateX(100%);
+}
+
+.lkt-toast.animation-left.is-visible,
+.lkt-toast.animation-right.is-visible
+{
+    transform: translateX(0);
+}
+
+.lkt-toast.animation-center {
+    transform: translateY(100%);
+}
+
+.lkt-toast.animation-center.is-visible
+{
+    transform: translateY(0);
+}
+
+.lkt-toast-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.lkt-toast-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.lkt-toast .lkt-progress {
+    --lkt-progress-bar-height: 10px;
+    --lkt-progress-min-height: 10px;
+    --lkt-progress-bar-percentage-color: #d4d4d4;
 }

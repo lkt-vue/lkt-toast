@@ -1,7 +1,7 @@
 import { ToastConfig } from 'lkt-vue-kernel';
 export declare class ToastController {
-    private components;
-    private zIndex;
-    open(config: ToastConfig): void;
-    close(zIndex: number): void;
+    static components: ToastConfig[];
+    static zIndex: number;
+    static open(config: ToastConfig): void;
+    static close(zIndex: number): void;
 }

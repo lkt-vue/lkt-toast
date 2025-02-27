@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "lkt-loader": "^1.0.1",
-    "lkt-vue-kernel": "^1.0.23"
+    "lkt-vue-kernel": "^1.0.26"
   },
   "peerDependencies": {
     "vue": "^3.3.0"

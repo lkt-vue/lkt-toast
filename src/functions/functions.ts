@@ -1,12 +1,13 @@
 import {ToastConfig} from 'lkt-vue-kernel';
 import {Settings} from '../settings/Settings';
+import {ToastController} from "../classes/ToastController";
 
 export const openToast = (config: ToastConfig) => {
     if (!Settings.canvas) {
         console.warn('ToastCanvas not defined');
         return;
     }
-    Settings.controller.open(config);
+    ToastController.open(config);
     //@ts-ignore
     Settings.canvas.refresh();
 };
@@ -16,7 +17,7 @@ export const closeToast = (zIndex: number) => {
         console.warn('ToastCanvas not defined');
         return;
     }
-    Settings.controller.close(zIndex);
+    ToastController.close(zIndex);
     //@ts-ignore
     Settings.canvas.refresh();
 };
