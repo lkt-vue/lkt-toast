@@ -1,6 +1,6 @@
 {
   "name": "lkt-toast",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "",
   "type": "module",
   "module": "./dist/build.js",
@@ -40,10 +40,10 @@
     "vue-tsc": "^2.2.0"
   },
   "dependencies": {
-    "lkt-loader": "^1.0.1",
-    "lkt-vue-kernel": "^1.0.26"
   },
   "peerDependencies": {
+    "lkt-loader": "^1.0.1",
+    "lkt-vue-kernel": "^1.0.26",,
     "vue": "^3.3.0"
   }
 }
