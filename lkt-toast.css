@@ -103,7 +103,7 @@
 }
 
 .lkt-toast .lkt-progress {
-    --lkt-progress-bar-height: var(--lkt-toast--progress--height);
-    --lkt-progress-min-height: var(--lkt-toast--progress--height);
-    --lkt-progress-bar-percentage-color: var(--lkt-toast--progress--color);
+    --lkt-progress--bar--height: var(--lkt-toast--progress--height);
+    --lkt-progress--min-height: var(--lkt-toast--progress--height);
+    --lkt-progress--bar--percentage-color: var(--lkt-toast--progress--color);
 }
