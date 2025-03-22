@@ -46,7 +46,7 @@
 .lkt-toast {
     padding: var(--lkt-toast--toast--padding);
     border-radius: var(--lkt-toast--toast--border-radius);
-    background: var(--lkt-toast--toast--bg);
+    background: var(--lkt-toast--toast--background);
     transition: var(--lkt-toast--toast--transition);
     width: var(--lkt-toast--toast--width);
     border: var(--lkt-toast--toast--border-width) var(--lkt-toast--toast--border-style) var(--lkt-toast--toast--border-color);

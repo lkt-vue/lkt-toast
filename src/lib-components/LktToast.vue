@@ -45,6 +45,9 @@ onMounted(() => {
 <template>
     <section class="lkt-toast"
              :class="classes"
+             role="status"
+             aria-live="polite"
+             aria-atomic="true"
              @mouseenter="onProgressMouseEnter"
              @mousemove="onProgressMouseEnter"
              @mouseleave="onProgressMouseLeave">

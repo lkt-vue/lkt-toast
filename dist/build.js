@@ -3,30 +3,30 @@ import { extractI18nValue as P, LktSettings as F, getDefaultValues as S, Toast a
 const z = class z {
 };
 z.canvas = void 0, z.defaultCloseIcon = "";
-let v = z;
+let f = z;
 const a = class a {
-  static open(n) {
-    a.components.push({ ...n, zIndex: a.zIndex }), ++a.zIndex;
+  static open(s) {
+    a.components.push({ ...s, zIndex: a.zIndex }), ++a.zIndex;
   }
-  static close(n) {
-    const s = a.components.findIndex((u) => u.zIndex === n);
-    s >= 0 && (a.components.splice(s, 1), a.components.length === 0 && (a.zIndex = 1e3));
+  static close(s) {
+    const n = a.components.findIndex((u) => u.zIndex === s);
+    n >= 0 && (a.components.splice(n, 1), a.components.length === 0 && (a.zIndex = 1e3));
   }
 };
 a.components = [], a.zIndex = 1e3;
-let f = a;
+let v = a;
 const te = (e) => {
-  if (!v.canvas) {
+  if (!f.canvas) {
     console.warn("ToastCanvas not defined");
     return;
   }
-  f.open(e), v.canvas.refresh();
+  v.open(e), f.canvas.refresh();
 }, $ = (e) => {
-  if (!v.canvas) {
+  if (!f.canvas) {
     console.warn("ToastCanvas not defined");
     return;
   }
-  f.close(e), v.canvas.refresh();
+  v.close(e), f.canvas.refresh();
 }, G = {
   class: "lkt-toast-inner",
   ref: "inner"
@@ -43,11 +43,11 @@ const te = (e) => {
     zIndex: {}
   }, S(q)),
   setup(e) {
-    const n = e, s = m(100), u = n.duration ?? 1e4, d = m(null), h = m(!1), g = c(() => {
+    const s = e, n = m(100), u = s.duration ?? 1e4, d = m(null), h = m(!1), g = c(() => {
       let i = [];
-      return h.value && i.push("is-visible"), n.positionX && i.push(`animation-${n.positionX}`), i.join(" ");
-    }), x = c(() => P(n.text)), _ = c(() => P(n.details)), L = F.defaultCloseToastIcon, y = () => {
-      $(n.zIndex);
+      return h.value && i.push("is-visible"), s.positionX && i.push(`animation-${s.positionX}`), i.join(" ");
+    }), x = c(() => P(s.text)), _ = c(() => P(s.details)), L = F.defaultCloseToastIcon, y = () => {
+      $(s.zIndex);
     }, I = () => {
       d.value.pause();
     }, o = () => {
@@ -61,6 +61,9 @@ const te = (e) => {
       const H = E("lkt-icon"), B = E("lkt-progress");
       return l(), p("section", {
         class: k(["lkt-toast", g.value]),
+        role: "status",
+        "aria-live": "polite",
+        "aria-atomic": "true",
         onMouseenter: I,
         onMousemove: I,
         onMouseleave: o
@@ -93,8 +96,8 @@ const te = (e) => {
           U(B, {
             ref_key: "progressRef",
             ref: d,
-            modelValue: s.value,
-            "onUpdate:modelValue": t[1] || (t[1] = (b) => s.value = b),
+            modelValue: n.value,
+            "onUpdate:modelValue": t[1] || (t[1] = (b) => n.value = b),
             duration: M(u),
             type: "decremental",
             "value-format": "hidden",
@@ -107,14 +110,14 @@ const te = (e) => {
   }
 }), W = { class: "lkt-toast-canvas" }, Y = /* @__PURE__ */ D({
   __name: "LktToastCanvas",
-  setup(e, { expose: n }) {
-    const s = m(0), u = A(), d = m([]), h = () => {
-      s.value = s.value + 1, setTimeout(() => {
+  setup(e, { expose: s }) {
+    const n = m(0), u = A(), d = m([]), h = () => {
+      n.value = n.value + 1, setTimeout(() => {
         var o;
         (o = u == null ? void 0 : u.proxy) == null || o.$forceUpdate();
       }, 1);
-    }, g = c(() => (s.value, f.components.filter((o) => o.positionX === "left"))), x = c(() => (s.value, f.components.filter((o) => o.positionX === "center"))), _ = c(() => (s.value, f.components.filter((o) => o.positionX === "right"))), L = c(() => g.value.length === 0 ? "" : "is-visible"), y = c(() => x.value.length === 0 ? "" : "is-visible"), I = c(() => _.value.length === 0 ? "" : "is-visible");
-    return n({
+    }, g = c(() => (n.value, v.components.filter((o) => o.positionX === "left"))), x = c(() => (n.value, v.components.filter((o) => o.positionX === "center"))), _ = c(() => (n.value, v.components.filter((o) => o.positionX === "right"))), L = c(() => g.value.length === 0 ? "" : "is-visible"), y = c(() => x.value.length === 0 ? "" : "is-visible"), I = c(() => _.value.length === 0 ? "" : "is-visible");
+    return s({
       refresh: h
     }), (o, i) => (l(), p("section", W, [
       r("div", {
@@ -149,16 +152,16 @@ const te = (e) => {
       ], 2)
     ]));
   }
-}), ne = {
+}), se = {
   install: (e) => {
     e.component("lkt-toast-canvas") === void 0 && e.component("lkt-toast-canvas", Y), e.component("lkt-toast") === void 0 && e.component("lkt-toast", T);
   }
-}, se = (e) => {
-  v.canvas = e;
+}, ne = (e) => {
+  f.canvas = e;
 };
 export {
   $ as closeToast,
-  ne as default,
+  se as default,
   te as openToast,
-  se as setToastCanvas
+  ne as setToastCanvas
 };
