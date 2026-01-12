@@ -1,7 +1,7 @@
-declare function $(e: any): void;
-declare namespace se {
+declare function D(e: any): void;
+declare namespace ne {
     function install(e: any): void;
 }
-declare function te(e: any): void;
-declare function ne(e: any): void;
-export { $ as closeToast, se as default, te as openToast, ne as setToastCanvas };
+declare function se(e: any): void;
+declare function oe(e: any): void;
+export { D as closeToast, ne as default, se as openToast, oe as setToastCanvas };

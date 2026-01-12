@@ -1,6 +1,15 @@
 <script lang="ts" setup>
-import {computed, onMounted, ref} from 'vue';
-import {extractI18nValue, getDefaultValues, LktSettings, Toast, ToastConfig} from "lkt-vue-kernel";
+import {computed, onMounted, ref, watch} from 'vue';
+import {
+    extractI18nValue,
+    getDefaultValues,
+    LktSettings,
+    ProgressAnimation,
+    ProgressConfig,
+    ProgressValueFormat,
+    Toast,
+    ToastConfig
+} from "lkt-vue-kernel";
 import {closeToast} from "../functions/functions";
 
 const props = withDefaults(defineProps<ToastConfig>(), getDefaultValues(Toast));
@@ -23,7 +32,10 @@ const classes = computed(() => {
 const calculatedCloseIcon = LktSettings.defaultCloseToastIcon
 
 const onProgressEnd = () => {
-        closeToast(props.zIndex);
+    console.log('triggered on end: ', progressPercentage.value)
+        if (progressPercentage.value === 0) {
+            closeToast(props.zIndex);
+        }
     },
     onProgressMouseEnter = () => {
         //@ts-ignore
@@ -65,11 +77,26 @@ onMounted(() => {
             <lkt-progress
                 ref="progressRef"
                 v-model="progressPercentage"
-                :duration="timeoutDuration"
-                type="decremental"
-                value-format="hidden"
-                pause-on-hover
-                @end="onProgressEnd"
+                v-bind="<ProgressConfig>{
+                    duration: timeoutDuration,
+                    animation: {
+                        type: ProgressAnimation.Decremental,
+                        autoplay: true,
+                        externalControl: false,
+                        to: 0,
+                        from: 100,
+                    },
+                    valueFormat: ProgressValueFormat.Hidden,
+                    pauseOnHover: true,
+                    events: {
+                        updatedVisibleProgress: (v) => {
+                            console.log('updatedVisibleProgress: ', v, timeoutDuration);
+                            if (v === 0) {
+                                closeToast(props.zIndex);
+                            }
+                        }
+                    }
+                }"
             />
         </div>
     </section>
