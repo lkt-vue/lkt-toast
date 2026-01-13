@@ -32,7 +32,6 @@ const classes = computed(() => {
 const calculatedCloseIcon = LktSettings.defaultCloseToastIcon
 
 const onProgressEnd = () => {
-    console.log('triggered on end: ', progressPercentage.value)
         if (progressPercentage.value === 0) {
             closeToast(props.zIndex);
         }
@@ -90,7 +89,6 @@ onMounted(() => {
                     pauseOnHover: true,
                     events: {
                         updatedVisibleProgress: (v) => {
-                            console.log('updatedVisibleProgress: ', v, timeoutDuration);
                             if (v === 0) {
                                 closeToast(props.zIndex);
                             }
