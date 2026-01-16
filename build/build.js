@@ -1,38 +1,12 @@
-import { defineComponent as $, mergeDefaults as E, ref as k, computed as c, onMounted as F, resolveComponent as H, createElementBlock as p, openBlock as l, normalizeClass as h, createElementVNode as r, createVNode as N, createBlock as z, createCommentVNode as w, unref as v, mergeProps as y, getCurrentInstance as A, Fragment as P, renderList as b } from "vue";
-import { extractI18nValue as X, LktSettings as U, ProgressValueFormat as j, ProgressAnimation as O, getDefaultValues as S, Toast as q } from "lkt-vue-kernel";
-const M = class M {
-};
-M.canvas = void 0, M.defaultCloseIcon = "";
-let f = M;
-const o = class o {
-  static open(s) {
-    o.components.push({ ...s, zIndex: o.zIndex }), ++o.zIndex;
-  }
-  static close(s) {
-    const n = o.components.findIndex((i) => i.zIndex === s);
-    n >= 0 && (o.components.splice(n, 1), o.components.length === 0 && (o.zIndex = 1e3));
-  }
-};
-o.components = [], o.zIndex = 1e3;
-let d = o;
-const se = (e) => {
-  if (!f.canvas) {
-    console.warn("ToastCanvas not defined");
-    return;
-  }
-  d.open(e), f.canvas.refresh();
-}, D = (e) => {
-  if (!f.canvas) {
-    console.warn("ToastCanvas not defined");
-    return;
-  }
-  d.close(e), f.canvas.refresh();
-}, G = {
+import { defineComponent as H, mergeDefaults as D, ref as m, computed as r, onMounted as $, resolveComponent as z, createElementBlock as d, openBlock as n, normalizeClass as v, createElementVNode as o, createVNode as S, createBlock as h, createCommentVNode as B, unref as i, mergeProps as T, getCurrentInstance as E, Fragment as V, renderList as R } from "vue";
+import { extractI18nValue as P, LktSettings as F, closeToast as b, ProgressValueFormat as N, ProgressAnimation as A, getDefaultValues as U, Toast as j, ToastController as y } from "lkt-vue-kernel";
+import { closeToast as oe, openToast as ne } from "lkt-vue-kernel";
+const O = {
   class: "lkt-toast-inner",
   ref: "inner"
-}, J = { class: "lkt-toast-header" }, K = { class: "lkt-toast-header-text" }, Q = ["innerHTML"], W = ["innerHTML"], L = /* @__PURE__ */ $({
+}, q = { class: "lkt-toast-header" }, w = { class: "lkt-toast-header-text" }, G = ["innerHTML"], J = ["innerHTML"], L = /* @__PURE__ */ H({
   __name: "LktToast",
-  props: /* @__PURE__ */ E({
+  props: /* @__PURE__ */ D({
     type: {},
     text: {},
     details: {},
@@ -41,75 +15,75 @@ const se = (e) => {
     duration: {},
     buttonConfig: {},
     zIndex: {}
-  }, S(q)),
-  setup(e) {
-    const s = e, n = k(100), i = s.duration ?? 1e4, u = k(null), x = k(!1), g = c(() => {
-      let t = [];
-      return x.value && t.push("is-visible"), s.positionX && t.push(`animation-${s.positionX}`), t.join(" ");
-    }), _ = c(() => X(s.text)), C = c(() => X(s.details)), V = U.defaultCloseToastIcon, I = () => {
-      u.value.pause();
-    }, R = () => {
-      u.value.start();
+  }, U(j)),
+  setup(t) {
+    const a = t, l = m(100), u = a.duration ?? 1e4, c = m(null), p = m(!1), k = r(() => {
+      let e = [];
+      return p.value && e.push("is-visible"), a.positionX && e.push(`animation-${a.positionX}`), e.join(" ");
+    }), _ = r(() => P(a.text)), g = r(() => P(a.details)), I = F.defaultCloseToastIcon, x = () => {
+      c.value.pause();
+    }, M = () => {
+      c.value.start();
     };
-    return F(() => {
+    return $(() => {
       setTimeout(() => {
-        x.value = !0;
+        p.value = !0;
       }, 100);
-    }), (t, m) => {
-      const a = H("lkt-icon"), B = H("lkt-progress");
-      return l(), p("section", {
-        class: h(["lkt-toast", g.value]),
+    }), (e, f) => {
+      const s = z("lkt-icon"), X = z("lkt-progress");
+      return n(), d("section", {
+        class: v(["lkt-toast", k.value]),
         role: "status",
         "aria-live": "polite",
         "aria-atomic": "true",
-        onMouseenter: I,
-        onMousemove: I,
-        onMouseleave: R
+        onMouseenter: x,
+        onMousemove: x,
+        onMouseleave: M
       }, [
-        r("div", G, [
-          r("div", J, [
-            r("div", K, [
-              e.icon ? (l(), z(a, {
+        o("div", O, [
+          o("div", q, [
+            o("div", w, [
+              t.icon ? (n(), h(s, {
                 key: 0,
-                icon: e.icon
-              }, null, 8, ["icon"])) : w("", !0),
-              r("div", {
+                icon: t.icon
+              }, null, 8, ["icon"])) : B("", !0),
+              o("div", {
                 class: "lkt-toast-text",
                 innerHTML: _.value
-              }, null, 8, Q)
+              }, null, 8, G)
             ]),
-            r("div", {
+            o("div", {
               class: "lkt-toast-close",
-              onClick: m[0] || (m[0] = (T) => v(D)(e.zIndex))
+              onClick: f[0] || (f[0] = (C) => i(b)(t.zIndex))
             }, [
-              r("i", {
-                class: h(v(V))
+              o("i", {
+                class: v(i(I))
               }, null, 2)
             ])
           ]),
-          r("div", {
+          o("div", {
             class: "lkt-toast-details",
-            innerHTML: C.value
-          }, null, 8, W),
-          N(B, y({
+            innerHTML: g.value
+          }, null, 8, J),
+          S(X, T({
             ref_key: "progressRef",
-            ref: u,
-            modelValue: n.value,
-            "onUpdate:modelValue": m[1] || (m[1] = (T) => n.value = T)
+            ref: c,
+            modelValue: l.value,
+            "onUpdate:modelValue": f[1] || (f[1] = (C) => l.value = C)
           }, {
-            duration: v(i),
+            duration: i(u),
             animation: {
-              type: v(O).Decremental,
+              type: i(A).Decremental,
               autoplay: !0,
               externalControl: !1,
               to: 0,
               from: 100
             },
-            valueFormat: v(j).Hidden,
+            valueFormat: i(N).Hidden,
             pauseOnHover: !0,
             events: {
-              updatedVisibleProgress: (T) => {
-                T === 0 && v(D)(s.zIndex);
+              updatedVisibleProgress: (C) => {
+                C === 0 && i(b)(a.zIndex);
               }
             }
           }), null, 16, ["modelValue"])
@@ -117,60 +91,60 @@ const se = (e) => {
       ], 34);
     };
   }
-}), Y = { class: "lkt-toast-canvas" }, Z = /* @__PURE__ */ $({
+}), K = { class: "lkt-toast-canvas" }, Q = /* @__PURE__ */ H({
   __name: "LktToastCanvas",
-  setup(e, { expose: s }) {
-    const n = k(0), i = A(), u = k([]), x = () => {
-      n.value = n.value + 1, setTimeout(() => {
-        var t;
-        (t = i == null ? void 0 : i.proxy) == null || t.$forceUpdate();
+  setup(t, { expose: a }) {
+    const l = m(0), u = E(), c = m([]), p = () => {
+      l.value = l.value + 1, setTimeout(() => {
+        var e;
+        (e = u == null ? void 0 : u.proxy) == null || e.$forceUpdate();
       }, 1);
-    }, g = c(() => (n.value, d.components.filter((t) => t.positionX === "left"))), _ = c(() => (n.value, d.components.filter((t) => t.positionX === "center"))), C = c(() => (n.value, d.components.filter((t) => t.positionX === "right"))), V = c(() => g.value.length === 0 ? "" : "is-visible"), I = c(() => _.value.length === 0 ? "" : "is-visible"), R = c(() => C.value.length === 0 ? "" : "is-visible");
-    return s({
-      refresh: x
-    }), (t, m) => (l(), p("section", Y, [
-      r("div", {
-        class: h(["lkt-toast-stack left-stack", V.value])
+    }, k = r(() => (l.value, y.components.filter((e) => e.positionX === "left"))), _ = r(() => (l.value, y.components.filter((e) => e.positionX === "center"))), g = r(() => (l.value, y.components.filter((e) => e.positionX === "right"))), I = r(() => k.value.length === 0 ? "" : "is-visible"), x = r(() => _.value.length === 0 ? "" : "is-visible"), M = r(() => g.value.length === 0 ? "" : "is-visible");
+    return a({
+      refresh: p
+    }), (e, f) => (n(), d("section", K, [
+      o("div", {
+        class: v(["lkt-toast-stack left-stack", I.value])
       }, [
-        (l(!0), p(P, null, b(g.value, (a) => (l(), z(L, y({
+        (n(!0), d(V, null, R(k.value, (s) => (n(), h(L, T({
           ref_for: !0,
           ref_key: "instanceReferences",
-          ref: u,
-          key: a.zIndex
-        }, { ref_for: !0 }, a), null, 16))), 128))
+          ref: c,
+          key: s.zIndex
+        }, { ref_for: !0 }, s), null, 16))), 128))
       ], 2),
-      r("div", {
-        class: h(["lkt-toast-stack center-stack", I.value])
+      o("div", {
+        class: v(["lkt-toast-stack center-stack", x.value])
       }, [
-        (l(!0), p(P, null, b(_.value, (a) => (l(), z(L, y({
+        (n(!0), d(V, null, R(_.value, (s) => (n(), h(L, T({
           ref_for: !0,
           ref_key: "instanceReferences",
-          ref: u,
-          key: a.zIndex
-        }, { ref_for: !0 }, a), null, 16))), 128))
+          ref: c,
+          key: s.zIndex
+        }, { ref_for: !0 }, s), null, 16))), 128))
       ], 2),
-      r("div", {
-        class: h(["lkt-toast-stack right-stack", R.value])
+      o("div", {
+        class: v(["lkt-toast-stack right-stack", M.value])
       }, [
-        (l(!0), p(P, null, b(C.value, (a) => (l(), z(L, y({
+        (n(!0), d(V, null, R(g.value, (s) => (n(), h(L, T({
           ref_for: !0,
           ref_key: "instanceReferences",
-          ref: u,
-          key: a.zIndex
-        }, { ref_for: !0 }, a), null, 16))), 128))
+          ref: c,
+          key: s.zIndex
+        }, { ref_for: !0 }, s), null, 16))), 128))
       ], 2)
     ]));
   }
-}), ne = {
-  install: (e) => {
-    e.component("lkt-toast-canvas") === void 0 && e.component("lkt-toast-canvas", Z), e.component("lkt-toast") === void 0 && e.component("lkt-toast", L);
+}), Z = {
+  install: (t) => {
+    t.component("lkt-toast-canvas") === void 0 && t.component("lkt-toast-canvas", Q), t.component("lkt-toast") === void 0 && t.component("lkt-toast", L);
   }
-}, oe = (e) => {
-  f.canvas = e;
+}, ee = (t) => {
+  y.canvas = t;
 };
 export {
-  D as closeToast,
-  ne as default,
-  se as openToast,
-  oe as setToastCanvas
+  oe as closeToast,
+  Z as default,
+  ne as openToast,
+  ee as setToastCanvas
 };

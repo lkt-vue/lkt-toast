@@ -1,8 +1,7 @@
 <script lang="ts" setup>
 import {computed, getCurrentInstance, ref} from 'vue';
 import LktToast from "../lib-components/LktToast.vue";
-import {ToastConfig} from "lkt-vue-kernel";
-import {ToastController} from "../classes/ToastController";
+import {ToastConfig, ToastController} from "lkt-vue-kernel";
 
 const refresher = ref(0);
 const instance = getCurrentInstance();

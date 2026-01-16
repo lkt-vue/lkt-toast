@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import {computed, onMounted, ref, watch} from 'vue';
 import {
+    closeToast,
     extractI18nValue,
     getDefaultValues,
     LktSettings,
@@ -10,7 +11,6 @@ import {
     Toast,
     ToastConfig
 } from "lkt-vue-kernel";
-import {closeToast} from "../functions/functions";
 
 const props = withDefaults(defineProps<ToastConfig>(), getDefaultValues(Toast));
 

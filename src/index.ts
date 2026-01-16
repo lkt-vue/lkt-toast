@@ -1,12 +1,11 @@
 import {App, Plugin} from 'vue';
 import LktToastCanvas from './lib-components/LktToastCanvas.vue';
 import {default as libComponent} from './lib-components/LktToast.vue';
-import {Settings} from './settings/Settings';
 
 import "./../lkt-toast.css";
-import {ValidCanvas} from "./types/ValidCanvas";
+import {ToastController, ToastCanvasInterface} from "lkt-vue-kernel";
 
-export {closeToast, openToast} from './functions/functions';
+export {closeToast, openToast} from 'lkt-vue-kernel';
 
 const LktToast: Plugin = {
     install: (app: App) => {
@@ -18,6 +17,6 @@ const LktToast: Plugin = {
 
 export default LktToast;
 
-export const setToastCanvas = (component: ValidCanvas): void => {
-    Settings.canvas = component;
+export const setToastCanvas = (component: ToastCanvasInterface): void => {
+    ToastController.canvas = component;
 };
