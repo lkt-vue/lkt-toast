@@ -23,6 +23,7 @@ const classes = computed(() => {
         let r: string[] = [];
         if (addAnimationClass.value) r.push('is-visible');
         if (props.positionX) r.push(`animation-${props.positionX}`);
+        if (props.class) r.push(props.class);
         return r.join(' ');
     }),
     computedText = computed(() => extractI18nValue(props.text)),

@@ -1,4 +1,4 @@
-import { defineComponent as H, mergeDefaults as D, ref as m, computed as r, onMounted as $, resolveComponent as z, createElementBlock as d, openBlock as n, normalizeClass as v, createElementVNode as o, createVNode as S, createBlock as h, createCommentVNode as B, unref as i, mergeProps as T, getCurrentInstance as E, Fragment as V, renderList as R } from "vue";
+import { defineComponent as H, mergeDefaults as D, ref as m, computed as a, onMounted as $, resolveComponent as z, createElementBlock as d, openBlock as r, normalizeClass as v, createElementVNode as n, createVNode as S, createBlock as h, createCommentVNode as B, unref as i, mergeProps as T, getCurrentInstance as E, Fragment as V, renderList as R } from "vue";
 import { extractI18nValue as P, LktSettings as F, closeToast as b, ProgressValueFormat as N, ProgressAnimation as A, getDefaultValues as U, Toast as j, ToastController as y } from "lkt-vue-kernel";
 import { closeToast as oe, openToast as ne } from "lkt-vue-kernel";
 const O = {
@@ -9,6 +9,7 @@ const O = {
   props: /* @__PURE__ */ D({
     type: {},
     text: {},
+    class: {},
     details: {},
     icon: {},
     positionX: {},
@@ -17,10 +18,10 @@ const O = {
     zIndex: {}
   }, U(j)),
   setup(t) {
-    const a = t, l = m(100), u = a.duration ?? 1e4, c = m(null), p = m(!1), k = r(() => {
+    const s = t, l = m(100), u = s.duration ?? 1e4, c = m(null), p = m(!1), k = a(() => {
       let e = [];
-      return p.value && e.push("is-visible"), a.positionX && e.push(`animation-${a.positionX}`), e.join(" ");
-    }), _ = r(() => P(a.text)), g = r(() => P(a.details)), I = F.defaultCloseToastIcon, x = () => {
+      return p.value && e.push("is-visible"), s.positionX && e.push(`animation-${s.positionX}`), s.class && e.push(s.class), e.join(" ");
+    }), _ = a(() => P(s.text)), g = a(() => P(s.details)), I = F.defaultCloseToastIcon, x = () => {
       c.value.pause();
     }, M = () => {
       c.value.start();
@@ -30,8 +31,8 @@ const O = {
         p.value = !0;
       }, 100);
     }), (e, f) => {
-      const s = z("lkt-icon"), X = z("lkt-progress");
-      return n(), d("section", {
+      const o = z("lkt-icon"), X = z("lkt-progress");
+      return r(), d("section", {
         class: v(["lkt-toast", k.value]),
         role: "status",
         "aria-live": "polite",
@@ -40,28 +41,28 @@ const O = {
         onMousemove: x,
         onMouseleave: M
       }, [
-        o("div", O, [
-          o("div", q, [
-            o("div", w, [
-              t.icon ? (n(), h(s, {
+        n("div", O, [
+          n("div", q, [
+            n("div", w, [
+              t.icon ? (r(), h(o, {
                 key: 0,
                 icon: t.icon
               }, null, 8, ["icon"])) : B("", !0),
-              o("div", {
+              n("div", {
                 class: "lkt-toast-text",
                 innerHTML: _.value
               }, null, 8, G)
             ]),
-            o("div", {
+            n("div", {
               class: "lkt-toast-close",
               onClick: f[0] || (f[0] = (C) => i(b)(t.zIndex))
             }, [
-              o("i", {
+              n("i", {
                 class: v(i(I))
               }, null, 2)
             ])
           ]),
-          o("div", {
+          n("div", {
             class: "lkt-toast-details",
             innerHTML: g.value
           }, null, 8, J),
@@ -83,7 +84,7 @@ const O = {
             pauseOnHover: !0,
             events: {
               updatedVisibleProgress: (C) => {
-                C === 0 && i(b)(a.zIndex);
+                C === 0 && i(b)(s.zIndex);
               }
             }
           }), null, 16, ["modelValue"])
@@ -93,45 +94,45 @@ const O = {
   }
 }), K = { class: "lkt-toast-canvas" }, Q = /* @__PURE__ */ H({
   __name: "LktToastCanvas",
-  setup(t, { expose: a }) {
+  setup(t, { expose: s }) {
     const l = m(0), u = E(), c = m([]), p = () => {
       l.value = l.value + 1, setTimeout(() => {
         var e;
         (e = u == null ? void 0 : u.proxy) == null || e.$forceUpdate();
       }, 1);
-    }, k = r(() => (l.value, y.components.filter((e) => e.positionX === "left"))), _ = r(() => (l.value, y.components.filter((e) => e.positionX === "center"))), g = r(() => (l.value, y.components.filter((e) => e.positionX === "right"))), I = r(() => k.value.length === 0 ? "" : "is-visible"), x = r(() => _.value.length === 0 ? "" : "is-visible"), M = r(() => g.value.length === 0 ? "" : "is-visible");
-    return a({
+    }, k = a(() => (l.value, y.components.filter((e) => e.positionX === "left"))), _ = a(() => (l.value, y.components.filter((e) => e.positionX === "center"))), g = a(() => (l.value, y.components.filter((e) => e.positionX === "right"))), I = a(() => k.value.length === 0 ? "" : "is-visible"), x = a(() => _.value.length === 0 ? "" : "is-visible"), M = a(() => g.value.length === 0 ? "" : "is-visible");
+    return s({
       refresh: p
-    }), (e, f) => (n(), d("section", K, [
-      o("div", {
+    }), (e, f) => (r(), d("section", K, [
+      n("div", {
         class: v(["lkt-toast-stack left-stack", I.value])
       }, [
-        (n(!0), d(V, null, R(k.value, (s) => (n(), h(L, T({
+        (r(!0), d(V, null, R(k.value, (o) => (r(), h(L, T({
           ref_for: !0,
           ref_key: "instanceReferences",
           ref: c,
-          key: s.zIndex
-        }, { ref_for: !0 }, s), null, 16))), 128))
+          key: o.zIndex
+        }, { ref_for: !0 }, o), null, 16))), 128))
       ], 2),
-      o("div", {
+      n("div", {
         class: v(["lkt-toast-stack center-stack", x.value])
       }, [
-        (n(!0), d(V, null, R(_.value, (s) => (n(), h(L, T({
+        (r(!0), d(V, null, R(_.value, (o) => (r(), h(L, T({
           ref_for: !0,
           ref_key: "instanceReferences",
           ref: c,
-          key: s.zIndex
-        }, { ref_for: !0 }, s), null, 16))), 128))
+          key: o.zIndex
+        }, { ref_for: !0 }, o), null, 16))), 128))
       ], 2),
-      o("div", {
+      n("div", {
         class: v(["lkt-toast-stack right-stack", M.value])
       }, [
-        (n(!0), d(V, null, R(g.value, (s) => (n(), h(L, T({
+        (r(!0), d(V, null, R(g.value, (o) => (r(), h(L, T({
           ref_for: !0,
           ref_key: "instanceReferences",
           ref: c,
-          key: s.zIndex
-        }, { ref_for: !0 }, s), null, 16))), 128))
+          key: o.zIndex
+        }, { ref_for: !0 }, o), null, 16))), 128))
       ], 2)
     ]));
   }

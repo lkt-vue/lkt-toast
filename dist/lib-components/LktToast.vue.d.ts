@@ -5,6 +5,7 @@ declare const _default: import("vue").DefineComponent<ToastConfig, {}, {}, {}, {
     zIndex: number;
     details: string | number;
     text: string | number;
+    class: string | number;
     icon: string | number;
     duration: number;
     buttonConfig: import("lkt-vue-kernel").ButtonConfig;
